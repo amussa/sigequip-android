@@ -12,10 +12,11 @@
         <item>ISSUE|SMI|SMI</item>
 
 
+        <item>NEGATIVE_ADJUST|INVENTORY_NEGATIVE|Inventory correction in case of over stock on Stock  card (Stock on  hand is less than stock in stock card)</item>
         <item>NEGATIVE_ADJUST|MAINTENANCE|Equipamento vai a manutencao ou reparacao</item>
         <item>NEGATIVE_ADJUST|DAMAGED|Equipamento Obsoleto</item>
 
-
+        <item>POSITIVE_ADJUST|INVENTORY_POSITIVE|Inventory correction in case of under stock on Stock card (Stock on hand is more than stock in stock card)</item>
         <item>POSITIVE_ADJUST|MAINTENANCE_RETURN|Devolucao da Manutencao ou Reparacao</item>
 
         <!-- Do not change -->

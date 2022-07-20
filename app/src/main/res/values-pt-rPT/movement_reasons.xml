@@ -11,11 +11,12 @@
         <item>ISSUE|SI|SI</item>
         <item>ISSUE|SMI|SMI</item>
 
-
+        <item>NEGATIVE_ADJUST|INVENTORY_NEGATIVE|Correção do Inventário, no caso de excesso de stock (stock é superior ao existente na ficha)</item>
         <item>NEGATIVE_ADJUST|MAINTENANCE|Equipamento vai a manutenção ou reparação</item>
         <item>NEGATIVE_ADJUST|DAMAGED|Equipamento Obsoleto</item>
 
 
+        <item>POSITIVE_ADJUST|INVENTORY_POSITIVE|Correção do Inventário, no caso de stock em falta (stock é inferior ao existente na ficha)</item>
         <item>POSITIVE_ADJUST|MAINTENANCE_RETURN|Devolução da Manutenção ou Reparação</item>
 
         <!-- Do not change -->
