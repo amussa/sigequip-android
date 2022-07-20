@@ -1,0 +1,30 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+apply plugin: 'idea'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "https://jitpack.io" }
+    }
+    dependencies {
+        classpath "gradle.plugin.com.betomorrow.gradle:appcenter-plugin:1.1.13"
+        classpath 'com.android.tools.build:gradle:3.3.2'
+    }
+    ext {
+        appCenterSdkVersion = '2.5.1'
+        buildToolsVersion = "28.0.3"
+        compileSdkVersion = 28
+        minSdkVersion = 19
+        targetSdkVersion = 28
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+}

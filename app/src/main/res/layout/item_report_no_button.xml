@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Card.Padded"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_white">
+
+    <LinearLayout
+        style="@style/Card.BannerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_period"
+            style="@style/ItemRnr.PeriodTextType1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="21 Nov 2015 to 20 Dec 2015" />
+
+        <TextView
+            android:id="@+id/tv_report_status"
+            style="@style/ItemRnr.MessageTextType1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="This is the message" />
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

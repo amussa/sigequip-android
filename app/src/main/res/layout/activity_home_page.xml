@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <org.openlmis.core.view.widget.IncompleteRequisitionBanner
+            android:id="@+id/view_incomplete_requisition_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            style="@style/Home.Container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_stock_card"
+                style="@style/Homepage.Button"
+                android:layout_width="match_parent"
+                android:layout_height="243dp"
+                android:layout_weight="1"
+                android:background="@color/color_primary"
+                android:onClick="onClickStockCard"
+                android:text="@string/label_stock_cards" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        >
+                        <Button
+                            android:id="@+id/btn_inventory"
+                            style="@style/Homepage.Button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="0dp"
+                            android:background="@color/color_blue"
+                            android:onClick="onClickInventory"
+                            android:text="@string/button_inventory" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <org.openlmis.core.view.widget.SyncTimeView
+                android:id="@+id/view_sync_time"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
