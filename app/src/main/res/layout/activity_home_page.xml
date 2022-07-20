@@ -9,11 +9,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <org.openlmis.core.view.widget.IncompleteRequisitionBanner
-            android:id="@+id/view_incomplete_requisition_banner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
         <LinearLayout
             style="@style/Home.Container"
             android:layout_width="match_parent"

@@ -93,8 +93,6 @@ public class HomeActivity extends BaseActivity {
     @InjectView(R.id.btn_inventory)
     Button btnInventory;
 
-    IncompleteRequisitionBanner incompleteRequisitionBanner;
-
     SyncTimeView syncTimeView;
 
     @InjectResource(R.integer.back_twice_interval)
@@ -130,7 +128,6 @@ public class HomeActivity extends BaseActivity {
         } else {
             setTitle(UserInfoMgr.getInstance().getFacilityName());
             syncTimeView = (SyncTimeView) findViewById(R.id.view_sync_time);
-            incompleteRequisitionBanner = (IncompleteRequisitionBanner) findViewById(R.id.view_incomplete_requisition_banner);
             if (getSupportActionBar() != null) {
                 getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             }
@@ -223,11 +220,6 @@ public class HomeActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
 
-        if (!LMISApp.getInstance().getFeatureToggleFor(R.bool.feature_training)) {
-            incompleteRequisitionBanner.setIncompleteRequisitionBanner();
-        } else {
-            incompleteRequisitionBanner.setVisibility(View.GONE);
-        }
         if (sharedPreferenceMgr.isStockCardLastYearSyncError()) {
             syncTimeView.setSyncStockCardLastYearError();
         } else if (!TextUtils.isEmpty(sharedPreferenceMgr.getStockMovementSyncError())) {
