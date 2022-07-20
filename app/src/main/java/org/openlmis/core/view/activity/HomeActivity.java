@@ -97,27 +97,6 @@ public class HomeActivity extends BaseActivity {
 
     SyncTimeView syncTimeView;
 
-   // @InjectView(R.id.btn_mmia_list)
-    Button btnMMIAList;
-
-    //@InjectView(R.id.btn_via_list)
-    Button btnVIAList;
-
-    //@InjectView(R.id.btn_kit_stock_card)
-    Button btnKitStockCard;
-
-    //@InjectView(R.id.btn_rapid_test)
-    Button btnRapidTestReport;
-
-    //@InjectView(R.id.btn_ptv_card)
-    Button btnPTVReport;
-
-    //@InjectView(R.id.btn_al)
-    Button btnALReport;
-
-    //@InjectView(R.id.rl_al)
-    RelativeLayout viewAl;
-
     @InjectResource(R.integer.back_twice_interval)
     int BACK_TWICE_INTERVAL;
 
@@ -160,11 +139,6 @@ public class HomeActivity extends BaseActivity {
         registerSyncFinishedReceiver();
         registerErrorFinishedReceiver();
 
-        if (!LMISApp.getInstance().getFeatureToggleFor(R.bool.feature_rapid_test)) {
-            btnRapidTestReport.setVisibility(View.GONE);
-        }
-
-        updateButtonConfigView();
     }
 
     private void registerSyncStartReceiver() {
@@ -224,50 +198,10 @@ public class HomeActivity extends BaseActivity {
         super.onDestroy();
     }
 
-    private void updateButtonConfigView() {
-        List reportTypes = sharedPreferenceMgr.getReportTypesData();
-        List<Pair<String, Button>> buttonConfigs = Arrays.asList(new Pair<>(Constants.VIA_REPORT, btnVIAList),
-                new Pair<>(Constants.MMIA_REPORT, btnMMIAList),
-                new Pair<>(Constants.AL_REPORT, btnALReport),
-                new Pair<>(Constants.PTV_REPORT, btnPTVReport),
-                new Pair<>(Constants.RAPID_REPORT, btnRapidTestReport));
-        for (Pair<String, Button> buttonConfig : buttonConfigs) {
-            ReportTypeForm reportType = getReportType(buttonConfig.first, reportTypes);
-            Button button = buttonConfig.second;
-            if (button != btnALReport) {
-                button.setVisibility(reportType == null ? View.GONE : View.VISIBLE);
-            } else {
-                viewAl.setVisibility(reportType == null ? View.GONE : View.VISIBLE);
-            }
-        }
-
-        if (btnPTVReport.getVisibility() == View.VISIBLE || btnMMIAList.getVisibility() == View.VISIBLE) {
-            ReportTypeForm ptv = getReportType(Constants.PTV_REPORT, reportTypes);
-            ReportTypeForm mmia = getReportType(Constants.MMIA_REPORT, reportTypes);
-            btnPTVReport.setVisibility((ptv == null || !ptv.active) ? View.GONE : View.VISIBLE);
-            btnMMIAList.setVisibility(mmia == null || !mmia.active ? View.GONE : View.VISIBLE);
-        }
-    }
-
-    private ReportTypeForm getReportType(String code, List<ReportTypeForm> reportTypes) {
-        for (ReportTypeForm typeForm : reportTypes) {
-            if (typeForm.getCode().equalsIgnoreCase(code)) {
-                return typeForm;
-            }
-        }
-        return null;
-    }
-
 
     public void onClickStockCard(View view) {
         if (!isHaveDirtyData()) {
             startActivity(StockCardListActivity.class);
-        }
-    }
-
-    public void onClickKitStockCard(View view) {
-        if (!isHaveDirtyData()) {
-            startActivity(KitStockCardListActivity.class);
         }
     }
 
@@ -279,50 +213,10 @@ public class HomeActivity extends BaseActivity {
 
     }
 
-    public void onClickPatientDataReport(View view) {
-        if (!isHaveDirtyData()) {
-            startActivity(new Intent(this, ViaPatientDataReportActivity.class));
-        }
-    }
-
-    public void onClickRapidTestHistory(View view) {
-        if (!isHaveDirtyData()) {
-            Intent intent = new Intent(this, RapidTestReportsActivity.class);
-            startActivity(intent);
-        }
-    }
-
-    public void onClickAL(View view) {
-        if (!isHaveDirtyData()) {
-            startActivity(RnRFormListActivity.getIntentToMe(this, Constants.Program.AL_PROGRAM));
-            TrackRnREventUtil.trackRnRListEvent(TrackerActions.SelectAL, Constants.AL_PROGRAM_CODE);
-        }
-    }
 
     public void syncData() {
         Log.d("HomeActivity", "requesting immediate sync");
         syncService.requestSyncImmediatelyFromUserTrigger();
-    }
-
-    public void onClickMMIAHistory(View view) {
-        if (!isHaveDirtyData()) {
-            startActivity(RnRFormListActivity.getIntentToMe(this, Constants.Program.MMIA_PROGRAM));
-            TrackRnREventUtil.trackRnRListEvent(TrackerActions.SelectMMIA, Constants.MMIA_PROGRAM_CODE);
-        }
-    }
-
-    public void onClickVIAHistory(View view) {
-        if (!isHaveDirtyData()) {
-            startActivity(RnRFormListActivity.getIntentToMe(this, Constants.Program.VIA_PROGRAM));
-            TrackRnREventUtil.trackRnRListEvent(TrackerActions.SelectVIA, Constants.VIA_PROGRAM_CODE);
-        }
-    }
-
-    public void onClickPtvStockCard(View view) {
-        if (!isHaveDirtyData()) {
-            startActivity(RnRFormListActivity.getIntentToMe(this, Constants.Program.PTV_PROGRAM));
-            TrackRnREventUtil.trackRnRListEvent(TrackerActions.SelectPTV, Constants.PTV_PROGRAM_CODE);
-        }
     }
 
     @Override
@@ -350,7 +244,6 @@ public class HomeActivity extends BaseActivity {
     protected void setSyncedTime() {
         if (!sharedPreferenceMgr.shouldSyncLastYearStockData() && !sharedPreferenceMgr.isSyncingLastYearStockCards()) {
             syncTimeView.showLastSyncTime();
-            updateButtonConfigView();
         } else if (!TextUtils.isEmpty(sharedPreferenceMgr.getStockMovementSyncError())) {
             syncTimeView.setSyncedMovementError(sharedPreferenceMgr.getStockMovementSyncError());
         } else {
