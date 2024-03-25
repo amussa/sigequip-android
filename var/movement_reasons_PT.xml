@@ -1,0 +1,31 @@
+<!-- PATH: app/src/main/res/values-pt-rPT/movement_reasons.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="reason_data">
+
+        <item>RECEIVE|CA|Centro de Abastecimento</item>
+        <item>RECEIVE|PROVINCE_DPM|Provincia(DPM)</item>
+        <item>RECEIVE|DISTRICT_DDM|Distrito(DDM)</item>
+        <item>RECEIVE|MISAU|PI Misau</item>
+        <item>RECEIVE|OTHERS|Outros</item>
+
+        <item>ISSUE|SI|SI</item>
+        <item>ISSUE|SMI|SMI</item>
+
+        <item>NEGATIVE_ADJUST|INVENTORY_NEGATIVE|Correção do Inventário, no caso de excesso de stock (stock é superior ao existente na ficha)</item>
+        <item>NEGATIVE_ADJUST|MAINTENANCE|Equipamento vai a manutenção ou reparação</item>
+        <item>NEGATIVE_ADJUST|DAMAGED|Equipamento Obsoleto</item>
+
+
+        <item>POSITIVE_ADJUST|INVENTORY_POSITIVE|Correção do Inventário, no caso de stock em falta (stock é inferior ao existente na ficha)</item>
+        <item>POSITIVE_ADJUST|MAINTENANCE_RETURN|Devolução da Manutenção ou Reparação</item>
+
+        <!-- Do not change -->
+        <item>PHYSICAL_INVENTORY|INVENTORY|Inventario</item>
+        <!-- Default Code , Do not change -->
+        <item>ISSUE|DEFAULT_ISSUE|Issued</item>
+        <item>RECEIVE|DEFAULT_RECEIVE|Received</item>
+        <item>NEGATIVE_ADJUST|DEFAULT_NEGATIVE_ADJUSTMENT|Negative adjustment</item>
+        <item>POSITIVE_ADJUST|DEFAULT_POSITIVE_ADJUSTMENT|Positive adjustment</item>
+    </string-array>
+</resources>

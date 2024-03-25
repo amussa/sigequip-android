@@ -106,8 +106,9 @@ public final class MovementReasonManager {
 
         typeArrayList.add(MovementType.ISSUE);
         typeArrayList.add(MovementType.RECEIVE);
-        typeArrayList.add(MovementType.NEGATIVE_ADJUST);
-        typeArrayList.add(MovementType.POSITIVE_ADJUST);
+        // sigequip tem apenas entradas e saidas, nao tem ajustes.
+        // typeArrayList.add(MovementType.NEGATIVE_ADJUST);
+        // typeArrayList.add(MovementType.POSITIVE_ADJUST);
 
         typeCache.put(locale.getLanguage(), typeArrayList);
 
