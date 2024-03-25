@@ -148,7 +148,7 @@ public class SimpleDialogFragment extends RoboDialogFragment {
                 Button positiveButton = ((AlertDialog) dialog).getButton(DialogInterface.BUTTON_POSITIVE);
                 positiveButton.setTypeface(null, Typeface.BOLD);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
-                        (int) getResources().getDimension(R.dimen.button_height_default));
+                        (int) getResources().getDimension(R.dimen.button_height_form));
                 positiveButton.setLayoutParams(layoutParams);
                 positiveButton.setTextColor(getResources().getColor(R.color.color_accent));
 
@@ -159,7 +159,7 @@ public class SimpleDialogFragment extends RoboDialogFragment {
                 }
 
                 TextView textView = (TextView) ((AlertDialog) dialog).findViewById(android.R.id.message);
-                textView.setTextSize(20);
+                textView.setTextSize(16);
             }
         });
     }

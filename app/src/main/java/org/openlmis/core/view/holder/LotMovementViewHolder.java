@@ -107,6 +107,13 @@ public class LotMovementViewHolder extends BaseViewHolder {
             etLotAmount.setSingleLine(false);
             etLotAmount.setHorizontallyScrolling(false);
         } else {
+            // quantidade do equipamento é sempre "1"
+            viewModel.setQuantity("1");
+            // campo deve ser readonly
+            etLotAmount.setFocusable(false);
+            etLotAmount.setFocusableInTouchMode(false);
+            etLotAmount.setCursorVisible(false);
+
             etLotAmount.setHintTextColor(context.getResources().getColor(R.color.color_select_title));
             etLotAmount.setEnabled(true);
             etLotAmount.setMaxLines(9);
