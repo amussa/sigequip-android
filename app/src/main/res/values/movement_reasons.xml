@@ -8,9 +8,10 @@
         <item>RECEIVE|MISAU|PI Misau</item>
         <item>RECEIVE|OTHERS|Outros</item>
 
-        <item>ISSUE|SI|SI</item>
-        <item>ISSUE|SMI|SMI</item>
-
+        <item>ISSUE|OBSOLETE|Obsolete</item>
+        <item>ISSUE|DAMAGED|Damaged</item>
+        <item>ISSUE|TRANSFERRED_TO_OTHER_US|Transferred to other US</item>
+        <item>ISSUE|DEVOLUTION|Devolution</item>
 
         <item>NEGATIVE_ADJUST|INVENTORY_NEGATIVE|Inventory correction in case of over stock on Stock  card (Stock on  hand is less than stock in stock card)</item>
         <item>NEGATIVE_ADJUST|MAINTENANCE|Equipamento vai a manutencao ou reparacao</item>
