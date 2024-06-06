@@ -1,17 +1,18 @@
-<!-- PATH: app/src/main/res/values/movement_reasons.xml -->
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="reason_data">
 
         <item>RECEIVE|CA|Centro de Abastecimento</item>
-        <item>RECEIVE|PROVINCE_DPM|Province ( DPM)</item>
+        <item>RECEIVE|PROVINCE_DPM|Province (DPM)</item>
         <item>RECEIVE|DISTRICT_DDM|District( DDM)</item>
-        <item>RECEIVE|MISAU|PI Misau</item>
+        <item>RECEIVE|ECONOMATO_PROVINCIAL|Economato Provincial</item>
+        <item>RECEIVE|DOACAO|Doação</item>
         <item>RECEIVE|OTHERS|Outros</item>
 
-        <item>ISSUE|SI|SI</item>
-        <item>ISSUE|SMI|SMI</item>
-
+        <item>ISSUE|OBSOLETE|Obsoleto</item>
+        <item>ISSUE|DAMAGED|Avariado</item>
+        <item>ISSUE|TRANSFERRED_TO_OTHER_US|Transferido para outra US</item>
+        <item>ISSUE|DEVOLUTION|Devolução</item>
 
         <item>NEGATIVE_ADJUST|INVENTORY_NEGATIVE|Inventory correction in case of over stock on Stock  card (Stock on  hand is less than stock in stock card)</item>
         <item>NEGATIVE_ADJUST|MAINTENANCE|Equipamento vai a manutencao ou reparacao</item>

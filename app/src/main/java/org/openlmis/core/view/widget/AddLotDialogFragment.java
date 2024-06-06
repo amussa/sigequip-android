@@ -128,7 +128,9 @@ public class AddLotDialogFragment extends BaseDialogFragment {
         expiryDate = DateUtil.formatDate(enteredDate, DateUtil.DATE_FORMAT_ONLY_MONTH_AND_YEAR);
 
         if (StringUtils.isBlank(etLotNumber.getText().toString())) {
-            showConfirmNoLotNumberDialog();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                showLotNumberError(getContext().getString(R.string.msg_empty_lot_number));
+            }
             return false;
         }
 
@@ -190,6 +192,12 @@ public class AddLotDialogFragment extends BaseDialogFragment {
         lyLotNumber.setErrorEnabled(false);
         expiryDateWarning.setVisibility(View.GONE);
     }
+
+    public void showLotNumberError(String errorMsg) {
+        lyLotNumber.setError(errorMsg);
+        // lyLotNumber.getBackground().setColorFilter(getResources().getColor(R.color.color_red), PorterDuff.Mode.SRC_ATOP);
+    }
+
 
     public boolean hasIdenticalLot(List<String> existingLots) {
         if (existingLots.contains(etLotNumber.getText().toString().toUpperCase())) {

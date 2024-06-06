@@ -568,6 +568,7 @@
     <string name="inactive_status">your status is inactive.</string>
     <string name="inactive">inactive</string>
     <string name="ifLeave">Are you sure you want to leave?</string>
+    <string name="msg_empty_lot_number">Field cannot be blank</string>
 
     <string-array name="movement_date_items_array">
         <item>Last 7 days</item>

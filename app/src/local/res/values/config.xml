@@ -11,6 +11,5 @@
     <bool name="ga_dryRun">true</bool>
 
     <string name="app_name">@string/app_name_in_local</string>
-
     <string name="app_time_out">86400000</string>
 </resources>

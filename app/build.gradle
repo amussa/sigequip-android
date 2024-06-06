@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         multiDexEnabled true
-        applicationId "org.openlmis.core"
+        applicationId "org.openlmis.sigequip"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         flavorDimensions "1"
@@ -56,29 +56,29 @@ android {
 
     productFlavors {
         local {
-            applicationId 'org.openlmis.core.local'
+            applicationId 'org.openlmis.sigequip.local'
         }
         dev {
-            applicationId 'org.openlmis.core.dev'
+            applicationId 'org.openlmis.sigequip.dev'
         }
         qa {
-            applicationId 'org.openlmis.core.qa'
+            applicationId 'org.openlmis.sigequip.qa'
             buildConfigField "boolean", "MONITOR_DEVICE_ID", "false"
         }
         uat {
-            applicationId 'org.openlmis.core.uat'
+            applicationId 'org.openlmis.sigequip.uat'
         }
         training {
-            applicationId 'org.openlmis.core.training'
+            applicationId 'org.openlmis.sigequip.training'
         }
         prd {
-            applicationId 'org.openlmis.core'
+            applicationId 'org.openlmis.sigequip'
         }
         ci {
-            applicationId 'org.openlmis.core.ci'
+            applicationId 'org.openlmis.sigequip.ci'
         }
         showcase {
-            applicationId 'org.openlmis.core.showcase'
+            applicationId 'org.openlmis.sigequip.showcase'
         }
     }
 

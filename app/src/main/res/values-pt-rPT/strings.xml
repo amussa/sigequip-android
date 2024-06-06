@@ -513,6 +513,7 @@
     <string name="inactive_status">seu status está inativo</string>
     <string name="inactive">inativo</string>
     <string name="ifLeave">Tem certeza que deseja encerrar sem guardar seu trabalho? Se você clicar "SIM", o rascunho será APAGADO?</string>
+    <string name="msg_empty_lot_number">Campo não pode estar em branco</string>
 
     <string-array name="movement_date_items_array">
         <item>Últimos 7 dias</item>
