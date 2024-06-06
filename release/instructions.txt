@@ -1,0 +1,10 @@
+Android
+app: https://app.co.mz/sigequip/
+user: DDM_MARRACUENE
+pass: test1234
+
+Portal
+url: http://sigequip.app.co.mz:9091 (treino)
+user: Admin123
+pass: Admin123
+

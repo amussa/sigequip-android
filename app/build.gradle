@@ -38,11 +38,17 @@ android {
             keyAlias "androiddebugkey"
             keyPassword "android"
         }
+//        release {
+//            storeFile file("../scripts/lmis_moz.jks")
+//            storePassword System.getenv("KSTOREPWD")
+//            keyAlias "clintonhealthaccess"
+//            keyPassword System.getenv("KEYPWD")
+//        }
         release {
-            storeFile file("../scripts/lmis_moz.jks")
-            storePassword System.getenv("KSTOREPWD")
-            keyAlias "clintonhealthaccess"
-            keyPassword System.getenv("KEYPWD")
+            storeFile file("../etc/key/sigequip.jks")
+            storePassword "12345678"
+            keyAlias "mykey"
+            keyPassword "12345678"
         }
     }
 
