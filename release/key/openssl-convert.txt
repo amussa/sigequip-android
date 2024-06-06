@@ -1,0 +1,51 @@
+Embora o Java 8 seja amplamente utilizado, ele pode não suportar certos algoritmos que são suportados em versões mais recentes. Uma abordagem que você pode seguir é atualizar para uma versão mais recente do JDK, como o JDK 11 ou superior, onde há suporte melhorado para algoritmos de segurança.
+
+Entretanto, se você precisa continuar com o Java 8, aqui está uma solução alternativa para converter o KeyStore utilizando `openssl` e `keytool`:
+
+### Passo 1: Converter PKCS12 para PEM usando `openssl`
+
+```bash
+openssl pkcs12 -in /Users/akil/Workspace/sigequip/SIGEquip-android/etc/key/sigequip.p12 -out /Users/akil/Workspace/sigequip/SIGEquip-android/etc/key/sigequip.pem -nodes
+```
+
+Você será solicitado a inserir a senha do KeyStore PKCS12.
+
+### Passo 2: Extrair chave privada e certificado
+
+Depois de converter para PEM, você precisará separar a chave privada e o certificado.
+
+#### Extrair a chave privada
+
+```bash
+openssl pkcs12 -in /Users/akil/Workspace/sigequip/SIGEquip-android/etc/key/sigequip.p12 -nocerts -out /Users/akil/Workspace/sigequip/SIGEquip-android/etc/key/sigequip-key.pem -nodes
+```
+
+#### Extrair o certificado
+
+```bash
+openssl pkcs12 -in /Users/akil/Workspace/sigequip/SIGEquip-android/etc/key/sigequip.p12 -clcerts -nokeys -out /Users/akil/Workspace/sigequip/SIGEquip-android/etc/key/sigequip-cert.pem
+```
+
+### Passo 3: Converter PEM para JKS usando `keytool`
+
+Agora você pode usar o `keytool` para importar a chave e o certificado no formato JKS. Primeiro, crie um arquivo PKCS12 a partir dos arquivos PEM:
+
+```bash
+openssl pkcs12 -export -in /Users/akil/Workspace/sigequip/SIGEquip-android/etc/key/sigequip-cert.pem -inkey /Users/akil/Workspace/sigequip/SIGEquip-android/etc/key/sigequip-key.pem -out /Users/akil/Workspace/sigequip/SIGEquip-android/etc/key/sigequip-new.p12 -name mykey
+```
+
+Finalmente, importe o arquivo PKCS12 para o KeyStore JKS:
+
+```bash
+keytool -importkeystore -srckeystore /Users/akil/Workspace/sigequip/SIGEquip-android/etc/key/sigequip-new.p12 -srcstoretype PKCS12 -destkeystore /Users/akil/Workspace/sigequip/SIGEquip-android/etc/key/sigequip.jks -deststoretype JKS
+```
+
+### Verificação Final
+
+Verifique o conteúdo do novo KeyStore JKS para garantir que a conversão foi bem-sucedida:
+
+```bash
+keytool -list -v -keystore /Users/akil/Workspace/sigequip/SIGEquip-android/etc/key/sigequip.jks
+```
+
+Este procedimento deve ajudar a resolver o problema de "Invalid keystore format" e permitir que você continue a construir seu APK assinado. Se você continuar tendo problemas, considere atualizar para uma versão mais recente do JDK.
